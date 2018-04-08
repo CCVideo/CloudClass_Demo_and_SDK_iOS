@@ -1,12 +1,10 @@
 # CloudClass_Demo_and_SDK_iOS
-CC视频云课堂产品基础班的SDK和demo（iOS平台）
+产品介绍：CC视频云课堂产品基础班的SDK和demo（iOS平台）
 
-# CloudClass Demo and SDK iOS 快速入门
+## 快速入门
 
 [完整文档](https://github.com/CCVideo/CloudClass_Demo_and_SDK_iOS/blob/master/Doc/index.html)
 - 请下载工程到本地后进入./Demo/Doc/下，打开index.html查看完整文档
-
----
 
 ## 环境准备
 
