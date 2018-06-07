@@ -1,7 +1,7 @@
 # CloudClass_iOS_Base_SDK
 CC视频云课堂产品基础班的SDK和demo（iOS平台）
 ## 1.概述
-CC基础班SDK 是一个适用于iOS平台的云课堂SDK，使用此SDK可以与CC视频云服务进行对接，在iOS端使用CC视频的云课堂功能。
+CC基础版SDK 是一个适用于iOS平台的云课堂SDK，使用此SDK可以与CC视频云服务进行对接，在iOS端使用CC视频的云课堂功能。
 
 ### 1.1 功能特性
 | 功能        | 描述                       | 备注   |

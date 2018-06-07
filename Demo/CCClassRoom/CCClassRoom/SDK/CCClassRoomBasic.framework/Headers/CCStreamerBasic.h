@@ -170,8 +170,12 @@ typedef void(^CCComletionBlock)(BOOL result, NSError *error, id info);
  @brief  推流ID
  */
 @property (strong, nonatomic) NSString *localStreamID;//自己推流的流ID
+/*!
+ @brief  流方向
+ */
 @property (assign, nonatomic) CCVideoOriMode videoMode;
 
+@property (strong, nonatomic) NSString *userVersion;
 #pragma mark - observer
 
 /**
@@ -184,6 +188,10 @@ typedef void(^CCComletionBlock)(BOOL result, NSError *error, id info);
  */
 - (void)removeObserver:(id<CCStreamerBasicDelegate>)observer;
 
+/**
+ 初始化CCStreamerBasic实例
+ */
++ (instancetype)sharedStreamer;
 
 #pragma mark - 配置socket重连参数
 
@@ -205,6 +213,24 @@ typedef void(^CCComletionBlock)(BOOL result, NSError *error, id info);
  * @result 操作结果
  */
 - (BOOL)setCameraType:(AVCaptureDevicePosition)pos;
+
+/*!
+ * @method
+ * @abstract 设置访问域名
+ * @discussion 设置访问域名
+ * @param domain 课堂域名
+ * @param area 区域参数 |- 国内：HB、HD、HN | 亚洲：DNY | 美国：MD、MX | 欧洲：OZD、OZX -|
+ * @result 操作结果
+ */
+- (BOOL)setServerDomain:(NSString *)domain area:(NSString *)area;
+
+/*!
+ * @method
+ * @abstract 获取访问域名
+ * @result 域名
+ */
+- (NSString *)getServerDomain;
+
 #pragma mark - 开启预览
 /*!
  @method (1000)
@@ -437,9 +463,11 @@ typedef void(^CCComletionBlock)(BOOL result, NSError *error, id info);
 /*!
  @method
  @abstract 获取节点列表
+ @param accountId 用户账号ID
+ @param completion 回调
  @return 操作结果
  */
-- (BOOL)getRoomServer:(CCComletionBlock)completion;
+- (BOOL)getRoomServerWithAccountID:(NSString *)accountId completion:(CCComletionBlock)completion;
 
 #pragma mark - 踢出房间
 /*!
@@ -450,5 +478,11 @@ typedef void(^CCComletionBlock)(BOOL result, NSError *error, id info);
  @return 操作结果
  */
 - (BOOL)kickUserFromRoom:(NSString *)userID;
+
+/*!
+ @method
+ @abstract 出发重连
+ @param completion 回调闭包
+ */
 - (void)reconnectAtlas:(CCComletionBlock)completion;
 @end

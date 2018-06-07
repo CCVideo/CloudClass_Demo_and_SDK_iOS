@@ -533,6 +533,7 @@
     {
         password = @"";
     }
+    
     NSString *url = @"https://ccapi.csslcloud.net/api/room/auth";
     NSDictionary *par = @{
                           @"roomid": roomID,

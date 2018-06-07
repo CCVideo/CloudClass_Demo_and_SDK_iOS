@@ -192,6 +192,11 @@
 
 -(void)parseCodeStr:(NSString *)result {
     NSLog(@"result = %@",result);
+    NSURL *url = [NSURL URLWithString:result];
+    NSString *host = url.host;
+    
+    CCStreamerBasic *basC = [CCStreamerBasic sharedStreamer];
+    [basC setServerDomain:host area:nil];
     
     NSRange rangeRoomId = [result rangeOfString:@"roomid="];
     NSRange rangeUserId = [result rangeOfString:@"userid="];

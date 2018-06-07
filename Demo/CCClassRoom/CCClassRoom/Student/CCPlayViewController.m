@@ -135,7 +135,7 @@
                             @"开启或者关闭麦克风",
                             @"开启或者关闭摄像头"];
     self.tableView = [UITableView new];
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(ws.view).offset(0.f);
@@ -538,6 +538,7 @@
     if (stream.type == CCStreamType_Mixed)
     {
         self.mixedStream = stream;
+        return;
     }
     sleep(1.f);
     [self autoSub:stream];
@@ -626,7 +627,7 @@
     
     NSString *authSessionID = self.info[@"data"][@"sessionid"];
     NSString *user_id = self.info[@"data"][@"userid"];
-    self.stremer = [[CCStreamerBasic alloc] init];
+    self.stremer = [CCStreamerBasic sharedStreamer];
     self.stremer.videoMode = CCVideoPortrait;
 //    self.stremer.delegate = self;
     [self.stremer addObserver:self];
