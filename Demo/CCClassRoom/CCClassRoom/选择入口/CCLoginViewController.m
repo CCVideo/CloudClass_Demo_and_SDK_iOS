@@ -361,10 +361,11 @@
     SaveToUserDefaults(LIVE_ROOMDESC, info[@"desc"]);
     NSString *userID = info[@"id"];
     [_loadingView removeFromSuperview];
-        CCPlayViewController *playVC = [[CCPlayViewController alloc] initWithStreamers:self.streamer];
-        playVC.viewerId = self.userID;
+    //self.streamer 为nil
+    CCPlayViewController *playVC = [[CCPlayViewController alloc] initWithStreamers:self.streamer];
+    playVC.viewerId = self.userID;
     playVC.info = info;
-        [self.navigationController pushViewController:playVC animated:YES];
+    [self.navigationController pushViewController:playVC animated:YES];
     [self.showStream removeAllObjects];
 }
 
